@@ -8,6 +8,7 @@
 import sys
 
 import bierprototype
+from sensormanager.sensormanager import Sensormanager
 
 try:
     import Tkinter as tk
@@ -25,12 +26,19 @@ except ImportError:
 
 
 def set_Tk_var():
+    global sensormanager
+    sensormanager = Sensormanager()
     global txt_inhalt
     txt_inhalt = tk.StringVar()
-    txt_inhalt.set('30,0 l')
+    txt_inhalt.set('{:03.3f}'.format(sensormanager.current_state["inhalt"]) + " l")
     global txt_gesamtverbrauch
     txt_gesamtverbrauch = tk.StringVar()
-    txt_gesamtverbrauch.set('0,0 l')
+    txt_gesamtverbrauch.set('{:07.1f}'.format(sensormanager.current_state["gesamtverbrauch"]) + " l")
+
+
+def refresh():
+    txt_inhalt.set('{:03.3f}'.format(sensormanager.current_state["inhalt"]) + " l")
+    txt_gesamtverbrauch.set('{:07.1f}'.format(sensormanager.current_state["gesamtverbrauch"]) + " l")
 
 
 def manual():
@@ -40,6 +48,10 @@ def manual():
 
 def ok():
     print('bierprototype_support.ok')
+
+    for x in range(1000):
+        sensormanager.count_pulse()
+
     sys.stdout.flush()
 
 
@@ -50,7 +62,7 @@ def p():
 
 def reset():
     print('bierprototype_support.reset')
-    txt_inhalt.set('30,0 l')
+    sensormanager.reset()
     sys.stdout.flush()
 
 
@@ -69,5 +81,4 @@ def destroy_window():
 
 
 if __name__ == '__main__':
-
     bierprototype.vp_start_gui()

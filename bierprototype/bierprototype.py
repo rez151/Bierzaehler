@@ -8,6 +8,7 @@
 import sys
 
 from bierprototype_support import bierprototype_support
+from sensormanager.sensormanager import Sensormanager
 
 try:
     import Tkinter as tk
@@ -22,8 +23,6 @@ except ImportError:
     import tkinter.ttk as ttk
 
     py3 = True
-
-
 
 
 def vp_start_gui():
@@ -156,10 +155,5 @@ class Bierzaehler:
         self.lbl_gesamtverbrauch.configure(width=406)
 
 
-def start_sensor():
-    pass
-
-
 if __name__ == '__main__':
-    start_sensor()
     vp_start_gui()
