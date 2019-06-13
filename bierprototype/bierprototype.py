@@ -92,20 +92,20 @@ class Bierzaehler:
         self.btn_P.configure(activebackground="#5b4fff")
         self.btn_P.configure(activeforeground="white")
         self.btn_P.configure(background="#211d5e")
-        self.btn_P.configure(command=bierprototype_support.p)
+        self.btn_P.configure(command=bierprototype_support.plus)
         self.btn_P.configure(font=font9)
         self.btn_P.configure(foreground="#ffffff")
-        self.btn_P.configure(text='''P''')
+        self.btn_P.configure(text='''+''')
 
         self.btn_M = tk.Button(top)
         self.btn_M.place(relx=0.017, rely=0.511, height=99, width=106)
         self.btn_M.configure(activebackground="#5b4fff")
         self.btn_M.configure(activeforeground="white")
         self.btn_M.configure(background="#211d5e")
-        self.btn_M.configure(command=bierprototype_support.manual)
+        self.btn_M.configure(command=bierprototype_support.minus)
         self.btn_M.configure(font=font9)
         self.btn_M.configure(foreground="#ffffff")
-        self.btn_M.configure(text='''M''')
+        self.btn_M.configure(text='''-''')
 
         self.btn_ok = tk.Button(top)
         self.btn_ok.place(relx=0.017, rely=0.756, height=99, width=106)
@@ -153,7 +153,3 @@ class Bierzaehler:
         self.lbl_gesamtverbrauch.configure(text='''0,0 l''')
         self.lbl_gesamtverbrauch.configure(textvariable=bierprototype_support.txt_gesamtverbrauch)
         self.lbl_gesamtverbrauch.configure(width=406)
-
-
-if __name__ == '__main__':
-    vp_start_gui()

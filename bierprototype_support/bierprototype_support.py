@@ -41,8 +41,13 @@ def refresh():
     txt_gesamtverbrauch.set('{:07.1f}'.format(sensormanager.current_state["gesamtverbrauch"]) + " l")
 
 
-def manual():
-    print('bierprototype_support.manual')
+def plus():
+    print('bierprototype_support.plus')
+    sys.stdout.flush()
+
+
+def minus():
+    print('bierprototype_support.minus')
     sys.stdout.flush()
 
 
@@ -52,11 +57,6 @@ def ok():
     for x in range(1000):
         sensormanager.count_pulse()
 
-    sys.stdout.flush()
-
-
-def p():
-    print('bierprototype_support.p')
     sys.stdout.flush()
 
 
